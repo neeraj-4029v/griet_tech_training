@@ -1,4 +1,6 @@
 import pandas as pd
+import Matplotlib 
+
 df=pd.read_csv("digital_behaviour.csv")
 print(df.head())
 print(df.tail())
@@ -28,11 +30,13 @@ app_total={
     "linkedin":df["LinkedIn_Minutes"].sum(),
     "whatsApp":df["WhatsApp_Minutes"].sum()
 }
+
 print(max(app_total,key=app_total.get))
 print((df["Day_Type"]=="Heavy").sum())
 print(df["Study_Minutes"].max())
 print(df[(df["Total_Screen_Time"])==(df["Total_Screen_Time"].max())]["Study_Minutes"].sum())
 print(df["Digital_Balance"].mean())
+print(df["Total_Screen_Time"].idxmax())
 df.to_csv("my_analysis.csv")
 
 
